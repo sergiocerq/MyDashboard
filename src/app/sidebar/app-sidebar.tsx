@@ -45,31 +45,31 @@ const data = {
   ],
   navMain: [
     {
-      title: "Serviços",
+      title: "Processos Jurídicos",
       url: "#",
       icon: Wrench,
       isActive: true,
       items: [
         {
-          title: "Serviços em Andamento",
-          url: "/servicos-andamento",
+          title: "Liminares",
+          url: "#",
         },
         {
           title: "Histórico",
-          url: "/historico-servicos",
+          url: "#",
         },
       ],
     },
     {
-      title: "Gestão de Garantias",
-      url: "/gestao-garantias",
+      title: "Resultados e Sentenças",
+      url: "#",
       icon: BookOpenCheck,
       isActive: false,
     },
   ],
   projects: [
     {
-      name: "Central do Conhecimento",
+      name: "Centro do Conhecimento",
       url: "#",
       icon: BrainCircuit,
       items: [

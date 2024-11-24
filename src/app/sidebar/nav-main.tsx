@@ -33,7 +33,7 @@ export function NavMain({ items }: { items: ItemNavMain[] }) {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Projetos</SidebarGroupLabel>
+      <SidebarGroupLabel>Processos</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
