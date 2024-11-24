@@ -8,16 +8,13 @@ import {
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import {
-  AudioWaveform,
   Blocks,
-  BookOpenCheck,
-  BrainCircuit,
+  BookOpen,
   CircleHelp,
-  Command,
-  GalleryVerticalEnd,
+  FileText,
+  Gavel,
   MousePointerClick,
   Settings2,
-  Wrench,
 } from "lucide-react";
 import imageAvatar from "../favicon.ico";
 import { NavProjects } from "./nav-projects";
@@ -47,7 +44,13 @@ const data = {
     {
       title: "Processos Jurídicos",
       url: "#",
-      icon: Wrench,
+      icon: Gavel,
+      isActive: false,
+    },
+    {
+      title: "Resultados e sentenças",
+      url: "#",
+      icon: FileText,
       isActive: true,
       items: [
         {
@@ -55,23 +58,21 @@ const data = {
           url: "#",
         },
         {
-          title: "Histórico",
+          title: "Sentenças",
+          url: "#",
+        },
+        {
+          title: "Despachos",
           url: "#",
         },
       ],
-    },
-    {
-      title: "Resultados e Sentenças",
-      url: "#",
-      icon: BookOpenCheck,
-      isActive: false,
     },
   ],
   projects: [
     {
       name: "Centro do Conhecimento",
       url: "#",
-      icon: BrainCircuit,
+      icon: BookOpen,
       items: [
         {
           title: "FAQ",
