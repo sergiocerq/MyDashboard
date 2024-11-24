@@ -8,30 +8,15 @@ import { UserAuthForm } from "./user-auth-form";
 import { CarouselEscavaNews } from "./carousel-escavanews";
 
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "Autenticação",
+  description: "Página de autenticação e criação de conta do projeto Escavador",
 };
 
 export default function AuthenticationPage() {
   return (
     <>
-      <div className="md:hidden">
-        <Image
-          src="/examples/authentication-light.png"
-          width={1280}
-          height={843}
-          alt="Authentication"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/authentication-dark.png"
-          width={1280}
-          height={843}
-          alt="Authentication"
-          className="hidden dark:block"
-        />
-      </div>
-      <div className="container relative max-w-xs mx-auto h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="h-1/3 lg:hidden"></div>
+      <div className="container relative max-w-xs mx-auto h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 ">
         <Link
           href="#"
           className={cn(
