@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LoaderIcon } from "lucide-react";
+import { useRouter } from "next/router";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string; // Classe TailwindCSS para estilizações adicionais
@@ -34,6 +35,7 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
  */
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();

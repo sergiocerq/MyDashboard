@@ -13,6 +13,7 @@ import {
   CircleHelp,
   FileText,
   Gavel,
+  HelpCircle,
   MousePointerClick,
   Settings2,
 } from "lucide-react";
@@ -70,9 +71,9 @@ const data = {
   ],
   projects: [
     {
-      name: "Centro do Conhecimento",
+      name: "Dúvidas Frequentes",
       url: "#",
-      icon: BookOpen,
+      icon: HelpCircle,
       items: [
         {
           title: "FAQ",

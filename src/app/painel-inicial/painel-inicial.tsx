@@ -20,8 +20,16 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DateRangePicker } from "./date-range-picker";
+import { Clock, DollarSign, FileText, Layers3 } from "lucide-react";
+import { ChartProcessos_X_Status } from "./chart-processos-x-status";
+import { ChartEvolucaoProcessos } from "./chart-evolucao-processos";
+import { useChartData } from "./data/useChartData";
 
 export const PainelInicial = () => {
+  const { getDataToEvolucaoProcessos, getDataToChartProcessos_X_Status } =
+    useChartData();
+
   return (
     <div>
       <SidebarProvider>
@@ -34,10 +42,6 @@ export const PainelInicial = () => {
               <Breadcrumb className="top-0 stroke-lime-50">
                 <BreadcrumbList>
                   <BreadcrumbItem className="md:block text-md md:text-lg">
-                    {/* <BreadcrumbLink
-                      className="flex items-center justify-center gap-3 "
-                    >
-                    </BreadcrumbLink> */}
                     Home
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="md:block" />
@@ -52,9 +56,11 @@ export const PainelInicial = () => {
           </header>
           <div className="flex-1 space-y-4 p-8 pt-6">
             <div className="flex items-center justify-between space-y-2">
-              <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+              <h2 className="text-3xl font-bold tracking-tight">
+                Painel Inicial
+              </h2>
               <div className="flex items-center space-x-2">
-                {/* <CalendarDateRangePicker /> */}
+                <DateRangePicker />
               </div>
             </div>
             <Tabs defaultValue="geral" className="space-y-4">
@@ -77,18 +83,7 @@ export const PainelInicial = () => {
                       <CardTitle className="text-sm font-medium">
                         Processos
                       </CardTitle>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="h-4 w-4 text-muted-foreground"
-                      >
-                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                      </svg>
+                      <FileText className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">+ 12.000</div>
@@ -102,20 +97,7 @@ export const PainelInicial = () => {
                       <CardTitle className="text-sm font-medium">
                         Movimentações Recentes
                       </CardTitle>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="h-4 w-4 text-muted-foreground"
-                      >
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                      </svg>
+                      <Layers3 className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">+3.200</div>
@@ -129,19 +111,7 @@ export const PainelInicial = () => {
                       <CardTitle className="text-sm font-medium">
                         Tempo Médio Resolução
                       </CardTitle>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="h-4 w-4 text-muted-foreground"
-                      >
-                        <rect width="20" height="14" x="2" y="5" rx="2" />
-                        <path d="M2 10h20" />
-                      </svg>
+                      <Clock className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">+ 180 dias</div>
@@ -155,18 +125,7 @@ export const PainelInicial = () => {
                       <CardTitle className="text-sm font-medium">
                         Valor das Causas
                       </CardTitle>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="h-4 w-4 text-muted-foreground"
-                      >
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                      </svg>
+                      <DollarSign className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">R$ 25.289.357,96</div>
@@ -176,26 +135,13 @@ export const PainelInicial = () => {
                     </CardContent>
                   </Card>
                 </div>
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                  <Card className="col-span-4">
-                    <CardHeader>
-                      <CardTitle>Evolução Número de Processos</CardTitle>
-                      <CardDescription>
-                        Visualização da evolução do número de processos ao longo
-                        do tempo
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent></CardContent>
-                  </Card>
-                  <Card className="col-span-3">
-                    <CardHeader>
-                      <CardTitle>Processos X Status</CardTitle>
-                      <CardDescription>
-                        Visualização dos processos por status
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent></CardContent>
-                  </Card>
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-8">
+                  <ChartEvolucaoProcessos
+                    chartData={getDataToEvolucaoProcessos()}
+                  />
+                  <ChartProcessos_X_Status
+                    chartData={getDataToChartProcessos_X_Status()}
+                  />
                 </div>
               </TabsContent>
             </Tabs>
