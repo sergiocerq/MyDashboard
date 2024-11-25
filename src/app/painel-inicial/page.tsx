@@ -26,6 +26,23 @@ import { ChartProcessos_X_Status } from "./chart-processos-x-status";
 import { ChartEvolucaoProcessos } from "./chart-evolucao-processos";
 import { useChartData } from "./data/useChartData";
 
+/**
+ * @description O componente é responsável por renderizar o painel inicial.
+ * Ele inclui Cards KDE com contadores gerais sobre informações dos processos e gráficos que mostram a evolução dos processos ao longo do tempo e a distribuição deles por status.
+ *
+ * @example
+ * import Page from "@/components/page";
+ *
+ * function App() {
+ *   return (
+ *     <div>
+ *       <Page />
+ *     </div>
+ *   );
+ * }
+ *
+ * @returns {JSX.Element} Retorna a página principal do painel inicial com gráficos de evolução e distribuição dos processos.
+ */
 export default function Page() {
   const { getDataToEvolucaoProcessos, getDataToChartProcessos_X_Status } =
     useChartData();

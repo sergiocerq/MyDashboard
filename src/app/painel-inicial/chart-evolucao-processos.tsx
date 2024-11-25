@@ -46,6 +46,29 @@ interface IChartEvolucaoProcessosProps {
   chartData: ChartEvolucaoProcessos[]
 }
 
+/**
+ * @description
+ * O componente é responsável por renderizar o gráfico que mostra a evolução quantitativa dos processos ao longo do tempo.
+ * Ele permite visualizar diferentes estados dos processos, como "Em andamento", "Encerrados", "Aguardando Decisão" e o "Total", sendo o último um gráfico de barras 'empilhado'.
+ *
+ * @example
+ * import { ChartEvolucaoProcessos } from "@/components/chart-evolucao-processos";
+ *
+ * const data = [
+ *   { month: "Jan 2021", em_andamento: 100, encerrados: 50, aguardando_decisao: 20 },
+ *   // ... mais dados
+ * ];
+ *
+ * function App() {
+ *   return (
+ *     <div>
+ *       <ChartEvolucaoProcessos chartData={data} />
+ *     </div>
+ *   );
+ * }
+ *
+ * @param {ChartEvolucaoProcessosData[]} props.chartData - Um array de objetos que contém os dados dos processos ao longo do tempo.
+ */
 export function ChartEvolucaoProcessos({chartData}: IChartEvolucaoProcessosProps) {
   const [activeChart, SetActiveChart] =
     React.useState<keyof typeof chartConfig>("total");

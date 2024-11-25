@@ -14,6 +14,23 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+/**
+ * @description
+ * O componente `DateRangePicker` é responsável por renderizar um range para intervalo de datas.
+ * Ele permite que o usuário selecione um intervalo de datas usando um calendário popover.
+ *
+ * @example
+ * // Exemplo de uso do componente DateRangePicker
+ * import { DateRangePicker } from "@/components/date-range-picker";
+ *
+ * function App() {
+ *   return (
+ *     <div>
+ *       <DateRangePicker />
+ *     </div>
+ *   );
+ * }
+ */
 export function DateRangePicker({
   className,
 }: React.HTMLAttributes<HTMLDivElement>) {
