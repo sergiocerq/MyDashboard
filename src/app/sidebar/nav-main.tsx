@@ -29,8 +29,6 @@ type ItemNavMain = {
 };
 
 export function NavMain({ items }: { items: ItemNavMain[] }) {
-  // const navigate = useNavigate();
-
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Processos</SidebarGroupLabel>
@@ -46,7 +44,6 @@ export function NavMain({ items }: { items: ItemNavMain[] }) {
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton
                   tooltip={item.title}
-                  // onClick={() => navigate(item.url)}
                 >
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
@@ -61,9 +58,8 @@ export function NavMain({ items }: { items: ItemNavMain[] }) {
                     {item.items?.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
                         <SidebarMenuSubButton asChild>
-                          {/* <a onClick={() => navigate(subItem.url)}> */}
                             <span>{subItem.title}</span>
-                          {/* </a> */}
+                      
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
