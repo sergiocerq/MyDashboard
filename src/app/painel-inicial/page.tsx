@@ -26,7 +26,7 @@ import { ChartProcessos_X_Status } from "./chart-processos-x-status";
 import { ChartEvolucaoProcessos } from "./chart-evolucao-processos";
 import { useChartData } from "./data/useChartData";
 
-export const PainelInicial = () => {
+export default function Page() {
   const { getDataToEvolucaoProcessos, getDataToChartProcessos_X_Status } =
     useChartData();
 
