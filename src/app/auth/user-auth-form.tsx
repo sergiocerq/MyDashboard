@@ -18,7 +18,7 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
  * @description Componente de formulário para a autenticação do usuário.
  *
  * Este componente renderiza um formulário de autenticação de usuário com campos para
- * entrada de email, um botão de envio e um botão de login com o Google.
+ * entrada de email e senha, um botão de envio e um botão de login com o Google.
  * Ele também exibe um ícone de carregamento enquanto a solicitação de autenticação está sendo processada.
  *
  * @example

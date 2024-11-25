@@ -1,6 +1,41 @@
 import { ChartEvolucaoProcessos } from "../chart-evolucao-processos";
-import { aguardando_decisao_status_color, em_andamento_status_color, encerrado_status_color } from "./contants";
+import {
+  aguardando_decisao_status_color,
+  em_andamento_status_color,
+  encerrado_status_color,
+} from "./contants";
+import { ChartProcessos_X_StatusData } from "./types";
 
+/**
+ * @description
+ * O hook `useChartData` é responsável por fornecer/mockar os dados e as funções necessárias para os gráficos de evolução dos processos e status dos processos exibidos no painel inicial.
+ * Ele contém os dados dos processos ao longo dos meses e fornece funções para transformar esses dados no formato necessário para os gráficos.
+ *
+ * @example
+ * import { useChartData } from "@/hooks/useChartData";
+ *
+ * function MyComponent() {
+ *   const { getDataToEvolucaoProcessos, getDataToChartProcessos_X_Status } = useChartData();
+ *
+ *   const evolucaoProcessosData = getDataToEvolucaoProcessos();
+ *   const chartProcessosXStatusData = getDataToChartProcessos_X_Status();
+ *
+ *   return (
+ *     <div>
+ *       ...
+ *       <ChartEvolucaoProcessos
+ *          chartData={getDataToEvolucaoProcessos()}
+ *        />
+ *        <ChartProcessos_X_Status
+ *          chartData={getDataToChartProcessos_X_Status()}
+ *        />
+ *      ...
+ *     </div>
+ *   );
+ * }
+ *
+ * @returns {object} Retorna um objeto contendo as funções `getDataToEvolucaoProcessos` e `getDataToChartProcessos_X_Status`.
+ */
 export const useChartData = () => {
   const chartData = [
     {
@@ -367,27 +402,48 @@ export const useChartData = () => {
 
   const getDataToEvolucaoProcessos = (): ChartEvolucaoProcessos[] => chartData;
 
-  const getDataToChartProcessos_X_Status = () => [
-    {
-      status: "Em andamento",
-      processo: chartData[0].em_andamento,
-      fill: em_andamento_status_color,
-    },
-    {
-      status: "Encerrado",
-      processo: chartData[0].encerrados,
-      fill: encerrado_status_color,
-    },
-    {
-      status: "Aguardando Decisão",
-      processo: chartData[0].aguardando_decisao,
-      fill: aguardando_decisao_status_color,
-    },
-  ];
-  
+  /**
+   * @description
+   * A função transforma os dados quantitativos dos processos ao longo dos últimos meses para o gráfico de pizza 'Status X Processos'.
+   *
+   * @example
+   * import { useChartData } from "@/hooks/useChartData";
+   *
+   * function MyComponent() {
+   *   const { getDataToChartProcessos_X_Status } = useChartData();
+   *
+   *   const chartProcessosXStatusData = getDataToChartProcessos_X_Status();
+   *
+   *   return (
+   *     <div>
+   *      ...
+   *     </div>
+   *   );
+   * }
+   *
+   * @returns {Array} Retorna um array de objetos representando os dados transformados para o gráfico de pizza 'Status X Processos'.
+   */
+  const getDataToChartProcessos_X_Status =
+    (): ChartProcessos_X_StatusData[] => [
+      {
+        status: "Em andamento",
+        processo: chartData[0].em_andamento,
+        fill: em_andamento_status_color,
+      },
+      {
+        status: "Encerrado",
+        processo: chartData[0].encerrados,
+        fill: encerrado_status_color,
+      },
+      {
+        status: "Aguardando Decisão",
+        processo: chartData[0].aguardando_decisao,
+        fill: aguardando_decisao_status_color,
+      },
+    ];
 
   return {
     getDataToEvolucaoProcessos,
-    getDataToChartProcessos_X_Status
+    getDataToChartProcessos_X_Status,
   };
 };
