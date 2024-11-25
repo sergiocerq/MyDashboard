@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LoaderIcon } from "lucide-react";
+import { useAuthForm } from "./data/useAuthForm";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string; // Classe TailwindCSS para estilizações adicionais
@@ -33,16 +34,7 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
  * }
  */
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
-  async function onSubmit(event: React.SyntheticEvent) {
-    event.preventDefault();
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }
+   const { isLoading, onSubmit, credentials, handleChange } = useAuthForm();
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
@@ -54,12 +46,32 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             </Label>
             <Input
               id="email"
-              placeholder="nome@escavador.com"
+              placeholder="Email"
               type="email"
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              name="email"
+              onChange={handleChange}
+            value={credentials.email}
+              />
+          </div>
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="senha">
+              Senha
+            </Label>
+            <Input
+              id="password"
+              name="senha"
+              placeholder="Senha"
+              type="password"
+              autoCapitalize="none"
+              autoComplete="password"
+              autoCorrect="off"
+              disabled={isLoading}
+              onChange={handleChange}
+              value={credentials.senha}
             />
           </div>
           <Button
