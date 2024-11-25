@@ -32,6 +32,30 @@ interface IChartProcessos_X_StatusProps {
   chartData: ChartProcessos_X_StatusData[]
 }
 
+/**
+ * @description
+ * O componente é responsável por renderizar um gráfico que mostra a distribuição dos processos por status.
+ * Ele permite visualizar diferentes estados dos processos em forma de pizza, com um contador exibindo o total dos processos pelo status selecionado.
+ *
+ * @example
+ * import { ChartProcessos_X_Status } from "@/components/chart-processos-x-status";
+ *
+ * const data = [
+ *   { status: "Em andamento", processo: 186, fill: "#fa7d08" },
+ *   { status: "Encerrado", processo: 305, fill: "#fcba04" },
+ *   { status: "Aguardando Decisão", processo: 237, fill: "#ffec3e" },
+ * ];
+ *
+ * function App() {
+ *   return (
+ *     <div>
+ *       <ChartProcessos_X_Status chartData={data} />
+ *     </div>
+ *   );
+ * }
+ *
+ * @param {ChartProcessos_X_StatusData[]} props.chartData - Um array de objetos que contém os dados dos processos por status.
+ */
 export function ChartProcessos_X_Status({chartData}: IChartProcessos_X_StatusProps) {
 
 const chartConfig = {

@@ -14,20 +14,29 @@ export const metadata: Metadata = {
   description: "Página de autenticação e criação de conta do projeto Escavador",
 };
 
+/**
+ * @description
+ * O componente é responsável por renderizar a página de autenticação do projeto Escavador.
+ * Ele possui um formulário de autenticação, um carrossel de notícias e 'links' para os Termos de Serviço e Política de Privacidade.
+ *
+ * @example
+ * import AuthenticationPage from "@/components/authentication-page";
+ *
+ * function App() {
+ *   return (
+ *     <div>
+ *       <AuthenticationPage />
+ *     </div>
+ *   );
+ * }
+ *
+ * @returns {JSX.Element} Retorna a página de autenticação com o formulário de login e outras informações relevantes.
+ */
 export default function AuthenticationPage() {
   return (
     <>
       <div className="h-1/3 lg:hidden"></div>
       <div className="container relative max-w-xs mx-auto h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 ">
-        {/* <Link
-          href="#"
-          className={cn(
-            buttonVariants({ variant: "ghost" }),
-            "absolute right-4 top-4 md:right-8 md:top-8"
-          )}
-        >
-          Login
-        </Link> */}
         <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
           <div className="absolute inset-0 bg-white" />
           <div className="relative z-20 flex flex-col items-start gap-12 text-lg font-medium">
