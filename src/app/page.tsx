@@ -1,5 +1,5 @@
 import AuthenticationPage from "./auth/authentication-page";
-import { Page } from "./painel-inicial/page";
+import Page from "./painel-inicial/page";
 
 export default function Home() {
   return (
